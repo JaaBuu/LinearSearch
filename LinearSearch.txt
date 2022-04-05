@@ -1,0 +1,76 @@
+Module Module1
+    Dim StudentNames(3) As String
+    Dim SearchItem As String
+    Dim Found As Boolean = False
+    Dim SecondChoice As Integer
+
+
+    Sub Main()
+        StudentNames(1) = "Jabu"
+        StudentNames(2) = "Dion"
+        StudentNames(3) = "Shivam"
+
+        For i = 1 To 3
+            Array.Sort(StudentNames)
+            Console.WriteLine(" SLOT " & i & "Is : " & StudentNames(i))
+        Next
+        Do Until Found = True
+            Console.WriteLine("Enter student name")
+            SearchItem = Console.ReadLine
+
+            For i = 1 To 3
+                If SearchItem = StudentNames(i) Then
+                    Found = True
+                End If
+            Next
+
+
+            If Found = True Then
+                Console.WriteLine("found student you've been searching for")
+            ElseIf Found = False Then
+                Console.WriteLine("INVALID STUDENT NAME")
+            End If
+        Loop
+
+        Found = False
+
+        Console.WriteLine("Would You like to search for another student")
+        Console.WriteLine("TYPE 0 FOR YES OR TYPE 1 FOR NO")
+        SecondChoice = Console.ReadLine
+
+
+        If SecondChoice = 1 Then
+            Console.WriteLine("Program has been terminated")
+        ElseIf SecondChoice = 0 Then
+            Do Until Found = True
+                Console.WriteLine("Enter student name")
+                SearchItem = Console.ReadLine
+
+                For i = 1 To 3
+                    If SearchItem = StudentNames(i) Then
+                        Found = True
+                    End If
+                Next
+
+                If Found = True Then
+                    Console.WriteLine("found student you've been searching for")
+                ElseIf Found = False Then
+                    Console.WriteLine("INVALID STUDENT NAME")
+                End If
+
+            Loop
+
+
+
+
+
+        End If
+
+
+
+
+
+        Console.ReadKey()
+    End Sub
+
+End Module
